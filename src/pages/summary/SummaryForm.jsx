@@ -1,14 +1,8 @@
 import React, { useState } from "react";
 
-export const SummaryForm = () => {
+export const SummaryForm = ({ setPhase }) => {
   const [checked, setChecked] = useState(false);
   const [showPopover, setShowPopover] = useState(false);
-
-  const checkboxLabel = (
-    <span>
-      I agree to <span style={{ color: "blue" }}> Terms and Conditions </span>
-    </span>
-  );
 
   const popover = showPopover ? (
     <div>No icecream will actually be Delivered</div>
@@ -35,7 +29,13 @@ export const SummaryForm = () => {
         </span>
       </label>
       {popover}
-      <button type="submit" disabled={!checked}>
+      <button
+        type="submit"
+        disabled={!checked}
+        onClick={() => {
+          setPhase("complete");
+        }}
+      >
         Confirm Order
       </button>
     </div>

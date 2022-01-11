@@ -6,6 +6,7 @@ import { ToppingsOption } from "./ToppingsOption";
 import { AlertBanner } from "../common/AlertBanner";
 import { PRICE_PER_ITEM } from "../../constants";
 import { useOrderDetails } from "../../contexts/OrderDetails";
+import { formatCurrency } from "../../utilities";
 
 export const Options = ({ optionType }) => {
   //scoops or toppings
@@ -36,7 +37,7 @@ export const Options = ({ optionType }) => {
   return (
     <div>
       <h2>{title}</h2>
-      <p>{PRICE_PER_ITEM[optionType]} each</p>
+      <p>{formatCurrency(PRICE_PER_ITEM[optionType])} each</p>
       <p>
         {title} total: {orderDetails.totals[optionType]}
       </p>
